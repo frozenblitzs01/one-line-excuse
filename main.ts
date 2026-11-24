@@ -7,8 +7,8 @@ import { mkdirSync, writeFileSync } from "node:fs";
 const entry =
   "I finished it on time in a parallel run, then merged the wrong timeline — the deliverable exists, just not in this universe yet.";
 
-if (entry.length > 160 || entry.trim().length === 0) {
-  throw new Error(`entry must be 1-160 characters, got ${entry.length}`);
+if (entry.length > 160 || entry.trim().length === 0 || entry.includes("\n")) {
+  throw new Error(`entry must be one line of 1-160 characters, got ${entry.length}`);
 }
 
 mkdirSync("/output", { recursive: true });
